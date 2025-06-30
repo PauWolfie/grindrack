@@ -1,0 +1,35 @@
+<div class="signup-container">
+    <h1 class="app-title">NEW ACCOUNT</h1>
+
+    <form (ngSubmit)="onSignUp()" #signupForm="ngForm">
+        <input type="text" placeholder="Username" name="username" [(ngModel)]="username" required />
+        <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required />
+
+        <div class="password-wrapper">
+            <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" name="password"
+                [(ngModel)]="password" required />
+            <img *ngIf="showPassword" src="assets/images/eyeOff.svg" alt="Hide password"
+                (click)="togglePasswordVisibility()" />
+            <img *ngIf="!showPassword" src="assets/images/eyeOn.svg" alt="Show password"
+                (click)="togglePasswordVisibility()" />
+        </div>
+
+        <div class="password-wrapper">
+            <input [type]="showConfirm ? 'text' : 'password'" placeholder="Confirm Password" name="confirmPassword"
+                [(ngModel)]="confirmPassword" required />
+            <img *ngIf="showConfirm" src="assets/images/eyeOff.svg" alt="Hide password"
+                (click)="toggleConfirmVisibility()" />
+            <img *ngIf="!showConfirm" src="assets/images/eyeOn.svg" alt="Show password"
+                (click)="toggleConfirmVisibility()" />
+        </div>
+
+        <button type="submit" [disabled]="!signupForm.form.valid">
+            Sign Up
+        </button>
+
+        <p class="login-text">
+            Already have an account?
+            <a (click)="navigateToLogin()">Log In</a>
+        </p>
+    </form>
+</div>

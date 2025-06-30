@@ -1,8 +1,26 @@
-<div class="container">
+<!-- <div class="container">
     <img src="assets/logo.png" alt="Logo" style="width: 100%;">
     <h2>Under developement</h2>
     <hr class="divider" />
     <p class="message">FORGED IN CODE. TESTED UNDER LOAD. COMING SOON.</p>
     <hr class="divider" />
     <p class="message">This app is being built like your best set:<br />slow, heavy, and relentless.</p>
+</div> -->
+
+<div class="login-container">
+    <h1 class="app-title">GRINDRACK</h1>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required />
+        <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required />
+
+        <button type="submit" [disabled]="!loginForm.form.valid">
+            Log In
+        </button>
+
+        <p class="signup-text">
+            Don’t have an account?
+            <a (click)="navigateToSignUp()">Sign Up</a>
+        </p>
+    </form>
 </div>

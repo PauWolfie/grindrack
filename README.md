@@ -1,6 +1,20 @@
 # Grindrack
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Grindrack is a modern and elegant workout tracker and fitness companion built with Angular 19.  
+It features a dark UI, smooth animations, secure authentication with Firebase, and session persistence via localStorage.
+
+🌐 **Live Application**: [https://grindrack.web.app](https://grindrack.web.app)
+
+## Features
+
+- 🔒 Firebase Authentication (Sign Up, Login, Persistent Session)
+- 💾 Firestore integration to store user data
+- 🌙 Clean dark UI with smooth transitions
+- 🧠 Form validation with feedback popups
+- 📱 Responsive layout ready for mobile
+- 🧰 Custom components with modular structure
+
+---
 
 ## Development server
 

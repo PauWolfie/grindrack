@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('/assets/loginBack.png');
+    background-image: url('/assets/loginBack2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-.login-container {
+.signup-container {
     width: 100%;
     max-width: 360px;
     padding: 2rem;
@@ -40,6 +40,7 @@
         flex-direction: column;
 
         input {
+            width: 90%;
             background-color: #1a1a1a;
             border: none;
             border-radius: 8px;
@@ -75,7 +76,7 @@
             }
         }
 
-        .signup-text {
+        .login-text {
             text-align: center;
             margin-top: 1rem;
             font-size: 0.9rem;
@@ -86,6 +87,30 @@
                 text-decoration: underline;
                 cursor: pointer;
             }
+        }
+    }
+}
+
+.password-wrapper {
+    position: relative;
+
+    input {
+        width: 100%;
+    }
+
+    img {
+        position: absolute;
+        right: 0.8rem;
+        top: 35%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 1;
         }
     }
 }

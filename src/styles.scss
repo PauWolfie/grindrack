@@ -1,3 +1,32 @@
-body{
+body {
     margin: 0;
+}
+
+// Sweetalert
+.swal2-title-custom {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.8rem !important;
+    letter-spacing: 1px;
+}
+
+.swal2-text-custom {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    color: #ccc !important;
+}
+
+.swal2-popup-custom {
+    border-radius: 12px !important;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.swal2-confirm-custom {
+    background-color: white !important;
+    color: black !important;
+    font-family: 'Inter', sans-serif !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1.2rem !important;
+    font-weight: 600 !important;
+    cursor: pointer;
 }

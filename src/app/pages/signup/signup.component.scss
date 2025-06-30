@@ -40,6 +40,7 @@
         flex-direction: column;
 
         input {
+            width: 90%;
             background-color: #1a1a1a;
             border: none;
             border-radius: 8px;
@@ -86,6 +87,30 @@
                 text-decoration: underline;
                 cursor: pointer;
             }
+        }
+    }
+}
+
+.password-wrapper {
+    position: relative;
+
+    input {
+        width: 100%;
+    }
+
+    img {
+        position: absolute;
+        right: 0.8rem;
+        top: 35%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 1;
         }
     }
 }

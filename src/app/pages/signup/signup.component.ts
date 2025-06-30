@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, setPersistence, browserLocalPersistence } from '@angular/fire/auth';
 import { PopupService } from '../../services/popup/popup.service';
 
 @Component({
@@ -61,7 +61,7 @@ export class SignupComponent {
 
   async storeUser() {
     try {
-      await this.createUserInAuth();
+      const uid = await this.createUserInAuth();
 
       const user = {
         username: this.username,
@@ -78,14 +78,18 @@ export class SignupComponent {
     }
   }
 
-  async createUserInAuth() {
+  async createUserInAuth(): Promise<string> {
     try {
+      await setPersistence(this.auth, browserLocalPersistence);
+
       const userCredential = await createUserWithEmailAndPassword(
         this.auth,
         this.email,
         this.password
       );
-      console.log('Authenticated user ID:', userCredential.user.uid);
+
+      const uid = userCredential.user.uid;
+      return uid;
     } catch (error) {
       this.popup.showError('Authentication error', (error as Error).message);
       throw error;

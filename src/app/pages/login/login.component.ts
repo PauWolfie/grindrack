@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  Auth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence
+} from '@angular/fire/auth';
+import { PopupService } from '../../services/popup/popup.service';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +19,28 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private auth: Auth,
+    private popup: PopupService
+  ) {
+    onAuthStateChanged(this.auth, (user) => {
+      if (user) this.router.navigate(['/home']);
+    });
+  }
 
-  onLogin() {
+  ngOnInit() { }
+
+  async onLogin() {
     if (this.email && this.password) {
-      console.log('Logging in with', this.email);
-      this.router.navigate(['/dashboard']);
+      try {
+        await setPersistence(this.auth, browserLocalPersistence);
+        this.router.navigate(['/home']);
+      } catch (error) {
+        this.popup.showError('Login failed', (error as Error).message);
+      }
+    } else {
+      this.popup.showWarning('Missing fields', 'Please enter your email and password');
     }
   }
 
